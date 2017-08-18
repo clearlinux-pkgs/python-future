@@ -4,7 +4,7 @@
 #
 Name     : python-future
 Version  : 0.16.0
-Release  : 2
+Release  : 3
 URL      : https://github.com/PythonCharmers/python-future/archive/v0.16.0.tar.gz
 Source0  : https://github.com/PythonCharmers/python-future/archive/v0.16.0.tar.gz
 Summary  : No detailed summary available
@@ -45,16 +45,22 @@ python components for the python-future package.
 %setup -q -n python-future-0.16.0
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1485025824
+export SOURCE_DATE_EPOCH=1503075754
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1485025824
+export SOURCE_DATE_EPOCH=1503075754
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
+echo ----[ mark ]----
+cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
+echo ----[ mark ]----
 
 %files
 %defattr(-,root,root,-)
@@ -66,4 +72,5 @@ python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
 
 %files python
 %defattr(-,root,root,-)
-/usr/lib/python*/*
+/usr/lib/python2*/*
+/usr/lib/python3*/*
