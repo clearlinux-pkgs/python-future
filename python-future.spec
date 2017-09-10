@@ -4,13 +4,14 @@
 #
 Name     : python-future
 Version  : 0.16.0
-Release  : 3
+Release  : 4
 URL      : https://github.com/PythonCharmers/python-future/archive/v0.16.0.tar.gz
 Source0  : https://github.com/PythonCharmers/python-future/archive/v0.16.0.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : BSD-3-Clause MIT
 Requires: python-future-bin
+Requires: python-future-legacypython
 Requires: python-future-python
 BuildRequires : pbr
 BuildRequires : pip
@@ -33,9 +34,18 @@ Group: Binaries
 bin components for the python-future package.
 
 
+%package legacypython
+Summary: legacypython components for the python-future package.
+Group: Default
+
+%description legacypython
+legacypython components for the python-future package.
+
+
 %package python
 Summary: python components for the python-future package.
 Group: Default
+Requires: python-future-legacypython
 
 %description python
 python components for the python-future package.
@@ -49,12 +59,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1503075754
+export SOURCE_DATE_EPOCH=1505058203
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
 %install
-export SOURCE_DATE_EPOCH=1503075754
+export SOURCE_DATE_EPOCH=1505058203
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -70,7 +80,10 @@ echo ----[ mark ]----
 /usr/bin/futurize
 /usr/bin/pasteurize
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
