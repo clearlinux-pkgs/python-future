@@ -4,7 +4,7 @@
 #
 Name     : python-future
 Version  : 0.17.0
-Release  : 21
+Release  : 22
 URL      : https://github.com/PythonCharmers/python-future/archive/v0.17.0.tar.gz
 Source0  : https://github.com/PythonCharmers/python-future/archive/v0.17.0.tar.gz
 Summary  : No detailed summary available
