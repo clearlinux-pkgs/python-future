@@ -4,7 +4,7 @@
 #
 Name     : python-future
 Version  : 0.18.2
-Release  : 26
+Release  : 27
 URL      : https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz
 Source0  : https://files.pythonhosted.org/packages/45/0b/38b06fd9b92dc2b68d58b75f900e97884c45bedd2ff83203d933cf5851c9/future-0.18.2.tar.gz
 Summary  : Clean single-source support for Python 3 and 2
@@ -53,6 +53,7 @@ python components for the python-future package.
 Summary: python3 components for the python-future package.
 Group: Default
 Requires: python3-core
+Provides: pypi(future)
 
 %description python3
 python3 components for the python-future package.
@@ -67,8 +68,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1583212062
-# -Werror is for werrorists
+export SOURCE_DATE_EPOCH=1583521807
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
