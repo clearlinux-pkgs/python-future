@@ -1,8 +1,7 @@
 # This file contains recursive sources that require this package
 Sphinx
 cloudflare
-dns-lexicon
 glances
 ouimeaux
 parsedatetime
-stestr
+python-jsonrpc-server
